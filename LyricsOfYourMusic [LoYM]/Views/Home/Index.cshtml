@@ -1,0 +1,35 @@
+﻿@model LyricsOfYourMusic__LoYM_.Models.Usuario
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/src/estilos.css" rel="stylesheet" type="text/css" />
+<body class="body">
+    <center>
+    <p><h1>Bienvenido</h1></p>
+        <p><h2>Inicie Sesión:</h2></p>
+    @using (Html.BeginForm("Index", "Home", 
+                new { ReturnUrl = ViewBag.ReturnUrl }, 
+                FormMethod.Post, new { @class="form" }))
+    { 
+        <p>Usuario: @Html.TextBoxFor(x=>x.User)   </p>
+        <p>Contraseña: @Html.PasswordFor(x=>x.Contraseña)</p>   
+        <p><input type="submit" value="Entrar" /></p>
+        <p>@Html.ActionLink("No tiene cuenta? Presione aqui","Registro")</p>
+         
+            if (Model.User!=null && Model.Contraseña!=null){
+                if (Model.login()) {
+                    
+                    Response.Redirect("/Home/Principal");
+                } else{
+                    <p>Usuario y/o Contraseña no válidos!</p>
+                }
+            }
+        if (Model.statusReset()) { }
+        
+  }
+ 
+       </center>
+</body>
+

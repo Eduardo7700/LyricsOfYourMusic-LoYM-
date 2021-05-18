@@ -1,0 +1,35 @@
+﻿@model LyricsOfYourMusic__LoYM_.Models.LoYM
+
+@{
+    ViewBag.Title = "Modificar";
+}
+
+
+<link href="~/src/estilos.css" rel="stylesheet" type="text/css" />
+<body class="body">
+    <center>
+        <h2>Modificando @ViewBag.cancion</h2>
+    @using (Html.BeginForm("Modificar", "Home",
+                new { ReturnUrl = ViewBag.ReturnUrl, i = @ViewBag.cancion, c = "1" }, 
+                FormMethod.Post, new { @class="form" }))
+    { 
+        <p>Nombre de la Canción: @Html.TextBoxFor(x=>x.Cancion)   </p>
+        <p>Artista: @Html.TextBoxFor(x=>x.Artista)</p>   
+        <p>Letra:</p>
+        <p>@Html.TextAreaFor(x=>x.Letra)</p>   
+        <p><input type="submit" value="Guardar" /></p>
+        <p>@Html.ActionLink("Regresar","Principal")</p>
+        string cancion = "" + ViewBag.cancion;
+            
+        if (Model.modificar(cancion)) {
+            
+        }
+            
+            
+            if (ViewBag.c != "0") {
+                Response.Redirect("/Home/Principal");
+            }
+  }
+ 
+       </center>
+</body>

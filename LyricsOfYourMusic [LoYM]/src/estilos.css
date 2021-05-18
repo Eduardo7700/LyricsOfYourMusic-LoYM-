@@ -1,0 +1,74 @@
+.body{
+    background: linear-gradient(to bottom, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 46%, rgba(73,165,191,1) 100%);
+    color: #037;    
+}
+.form
+{ 
+    border-color: #045c6c; 
+    border-style: solid; 
+    background: -o-linear-gradient(top, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 85%, rgba(73,165,191,1) 99%, rgba(73,165,191,1) 100%);
+    font-family: Cambria; 
+    font-size: 10pt; 
+    font-weight: bold;
+    width:200px;
+    
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 2px 2px 2px 0px rgb(128, 128, 128);
+    box-sizing: border-box;
+}
+p {
+    font-size:14px;
+}
+    
+input {
+    width:160px;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 1px 1px 1px 0px rgb(128, 128, 128);
+    box-sizing: border-box;
+}
+input:hover {
+    transform:scale(1.01,1.01);
+    }
+table {     
+    font-family: Cambria, "Lucida Grande", Sans-Serif;
+    font-size: 14px;    
+    margin: 45px;     
+    width: 800px; 
+    text-align: left;   
+    border-collapse: collapse;     
+    caption-side:bottom;
+}
+
+th {             
+    padding: 8px;     
+    background: #b9c9fe;
+    border-top: 4px solid #aabcfe;    
+    border-bottom: 1px solid #fff; 
+    color: #039; 
+
+}
+
+td {    padding: 8px;     
+        background: #e8edff;     
+        border-bottom: 1px solid #fff;    
+        color: #669; 
+        border-top: 1px solid transparent; 
+
+}
+a {
+    color: green;
+}
+a:hover {
+    color:blue;
+    }
+textarea {
+    width:160px;
+    height:80px;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 1px 1px 1px 0px rgb(128, 128, 128);
+    box-sizing: border-box;
+}
+textarea:hover {
+    transform:scale(1.01,1.01);
+    box-shadow: 1px 1px 1px 1px #fff;
+    }

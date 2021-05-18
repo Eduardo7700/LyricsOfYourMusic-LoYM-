@@ -1,0 +1,42 @@
+﻿@model LyricsOfYourMusic__LoYM_.Models.LoYM
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+<link href="~/src/estilos.css" rel="stylesheet" type="text/css" />
+<body class="body">
+    <center>
+        <p><h2>Realmente desea eliminar a '@ViewBag.cancion'?</h2></p>
+        
+    @using (Html.BeginForm("Eliminar", "Home",
+                new { ReturnUrl = ViewBag.ReturnUrl , i = @ViewBag.cancion, cnf = "si" },
+                FormMethod.Post, new { @class = ""}))
+    {          
+         <p><input type="submit" value="Si" /></p>    
+        string cancion="";    
+        string cnf="";
+        try
+        {
+            cancion = ""+ViewBag.cancion;
+            cnf = ""+ViewBag.cnf;
+            if (cnf!="0" && Model.eliminar(cancion)){   
+                Response.Redirect("/Home/Principal");                
+            }
+        }
+        catch (Exception ex) {
+            <p>Error: @ex</p> 
+        }
+        
+    }
+        @using (Html.BeginForm("Principal", "Home", 
+                new { ReturnUrl = ViewBag.ReturnUrl }, 
+                FormMethod.Post, new { @class="" }))
+    {          
+         <p><input type="submit" value="No" /></p>
+        
+  }
+ 
+       </center>
+</body>
+
+

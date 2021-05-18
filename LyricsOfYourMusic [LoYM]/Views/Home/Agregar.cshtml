@@ -1,0 +1,33 @@
+﻿@model LyricsOfYourMusic__LoYM_.Models.LoYM
+
+@{
+    ViewBag.Title = "Agregar";
+}
+<link href="~/src/estilos.css" rel="stylesheet" type="text/css" />
+<body class="body">
+    <center>
+        <h2>Nueva Canción</h2>
+    @using (Html.BeginForm("Agregar", "Home", 
+                new { ReturnUrl = ViewBag.ReturnUrl }, 
+                FormMethod.Post, new { @class="form" }))
+    { 
+        <p>Nombre de la Canción: @Html.TextBoxFor(x=>x.Cancion)   </p>
+        <p>Artista: @Html.TextBoxFor(x=>x.Artista)</p>   
+        <p>Letra:</p>
+        <p>@Html.TextAreaFor(x=>x.Letra)</p>   
+        <p><input type="submit" value="Guardar" /></p>
+        <p>@Html.ActionLink("Regresar","Principal")</p>
+         
+            if (Model.Cancion!=null && Model.Artista!=null && Model.Letra!=null){
+                if (Model.agregar()) {                    
+                    Response.Redirect("/Home/Principal");
+                } else{
+                    <p>Ya existe!</p>
+                }
+            }
+  }
+ 
+       </center>
+</body>
+
+

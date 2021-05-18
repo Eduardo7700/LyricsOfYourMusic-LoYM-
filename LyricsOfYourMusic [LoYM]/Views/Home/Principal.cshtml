@@ -1,0 +1,37 @@
+﻿@model LyricsOfYourMusic__LoYM_.Models.LoYM
+
+@{
+    ViewBag.Title = "Principal";
+    List<String> lista = Model.getCanciones();
+    lista.Sort();
+}
+<link href="~/src/estilos.css" rel="stylesheet" type="text/css" />
+<body class="body">    
+    <center>
+        <table border="0">
+            <caption><br />
+                @Html.ActionLink("Agregar Canción", "Agregar")<br />
+                @Html.ActionLink("Cerrar Sesión", "Index")
+
+            </caption>
+            <tr> <th>Nombre de la Canción</th> <th>Artista</th> <th>Acciones</th> </tr>
+            
+            @foreach(String i in lista){
+                <tr>
+                    <td>@i</td>
+                    <td>@Model.getArtista(i)</td>
+                    @if (i != "No hay Elementos para mostrar")
+                    {
+                        <td>@Html.ActionLink("Ver Letra", "Ver", new { i }) @Html.ActionLink("Editar", "Modificar", new { i , c="0" }) @Html.ActionLink("Borrar", "Eliminar", new { i , cnf="0"})</td>
+                    }else{
+                        <td>Ninguna</td>
+                    }
+                </tr>
+            }
+        </table>
+        <br />
+        <div>
+        
+    </div>
+    </center>
+</body>

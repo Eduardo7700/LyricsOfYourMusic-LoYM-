@@ -1,0 +1,36 @@
+﻿@model LyricsOfYourMusic__LoYM_.Models.Usuario
+
+@{
+    ViewBag.Title = "Registro";
+}
+
+<link href="~/src/estilos.css" rel="stylesheet" type="text/css" />
+<body class="body">
+    <center>
+    <h1>Registre por favor:</h1>        
+@using (Html.BeginForm("Registro", "Home", 
+            new { ReturnUrl = ViewBag.ReturnUrl }, 
+            FormMethod.Post, new { @class="form" }))
+{ 
+    <p>Ingrese su nuevo usuario: @Html.TextBoxFor(x=>x.User)   </p>
+    <p>Ingrese su nueva contraseña: @Html.PasswordFor(x=>x.Contraseña)</p>   
+    <p><input type="submit" value="Registrar" /></p>
+    <p>@Html.ActionLink("Ya tiene cuenta? Inicie Sesión","Index")</p>  
+    if (Model.User!=null && Model.Contraseña!=null){
+        if (!Model.validar()){
+            if (Model.registro()){
+                Response.Redirect("/Home/Index");
+            }
+            else{
+            <p>Fallo al Registrarse</p>
+            }
+        }else{
+            <p>Este usuario ya existe!</p>
+        }
+    }
+}
+      </center>
+
+        
+
+</body>

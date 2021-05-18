@@ -1,0 +1,15 @@
+﻿@model LyricsOfYourMusic__LoYM_.Models.LoYM
+
+@{
+    ViewBag.Title = "Ver";
+}
+<link href="~/src/estilos.css" rel="stylesheet" type="text/css" />
+<body class="body">
+    <center>
+        <h2>@ViewBag.cancion</h2>
+        <p>@Model.getLetra(@ViewBag.cancion)</p>
+        <p>@Html.ActionLink("Regresar", "Principal")</p>
+
+        
+       </center>
+</body>
